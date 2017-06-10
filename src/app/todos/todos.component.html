@@ -1,0 +1,5 @@
+<div class="row">
+  <todo-form (onNewElement)="addNewElement($event)"></todo-form>
+  <hr/>
+  <todo-list [todos]="todoList" (onDone)="markDone($event)" (onUndone)="markUndone($event)"></todo-list>
+</div>

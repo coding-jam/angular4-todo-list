@@ -1,0 +1,16 @@
+<div class="col-xs-12">
+  <table class="table">
+    <tr *ngFor="let todo of todos">
+      <td [class.done-true]="todo.done">{{todo.id}}</td>
+      <td [class.done-true]="todo.done">{{todo.text}}</td>
+      <td>
+        <button class="pull-right btn btn-default" (click)="markDone(todo)" *ngIf="!todo.done">
+          Done
+        </button>
+        <button class="pull-right btn btn-default" (click)="markUndone(todo)" *ngIf="todo.done">
+          Redo
+        </button>
+      </td>
+    </tr>
+  </table>
+</div>

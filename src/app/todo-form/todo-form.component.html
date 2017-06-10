@@ -1,0 +1,10 @@
+<form (ngSubmit)="addTodo()">
+  <div class="row">
+    <div class="col-xs-10">
+      <input name="todoInput" type="text" class="form-control" id="textInput" placeholder="Add Todo..." [(ngModel)]="element" autocomplete="off"/>
+    </div>
+    <div class="col-xs-2">
+      <input type="submit" class="btn btn-default" value="Save"/>
+    </div>
+  </div>
+</form>
