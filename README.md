@@ -12,7 +12,7 @@ npm install && cd backend && npm install && cd ..
 
 ## Development server (frontend and backend)
 
-Run `npm start` witch will run backend on `http://localhost:3000/` and frontend on `http://localhost:4200/`
+Run `npm start` which will run backend on `http://localhost:3000/` and frontend on `http://localhost:4200/`
 
 ## Code scaffolding
 
