@@ -16,7 +16,7 @@ export class TodosComponent {
   addNewElement(element: string) {
     let todo = {id: this.todoList.length + 1, text: element, done: false};
     this._todoListService.store(todo)
-    //     .subscribe(todo => this.todoList.push(todo), alert);
+        .subscribe(t => this.todoList.push(t), alert);
   }
 
   markDone(todo: Todo) {
@@ -31,7 +31,7 @@ export class TodosComponent {
 
   private mark(todo: Todo) {
     this._todoListService.update(todo)
-        // .subscribe(null, alert);
+        .subscribe(console.log, alert);
   }
 
 }

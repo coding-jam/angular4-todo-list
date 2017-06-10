@@ -1,5 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import {Todo} from "../models/todo";
+import {TodoListService} from "../services/todo-list.service";
 
 @Component({
   selector: 'todo-list',
@@ -14,9 +15,14 @@ export class TodoListComponent implements OnInit {
 
   @Output() onUndone: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  constructor() { }
+  constructor(private todoListService: TodoListService) { }
 
   ngOnInit() {
+    this.todoListService.getAll().subscribe(
+      (todos: Todo[]) => {
+        todos.forEach(todo => this.todos.push(todo));
+      },
+      (error: string) => alert(error));
   }
 
   markDone(todo: Todo) {

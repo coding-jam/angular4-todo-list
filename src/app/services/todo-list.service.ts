@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import {Todo} from "../models/todo";
 import {Observable} from "rxjs/Observable";
-import {Http, Headers} from "@angular/http";
+import {Http} from "@angular/http";
 
 @Injectable()
 export class TodoListService {
@@ -12,35 +12,31 @@ export class TodoListService {
 
   store(todo: Todo) {
     console.log('Storing' + todo);
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    //let options = new RequestOptions({ headers: headers });
-
-    // return this.http.post(TodoListService.baseUrl + '/todos', JSON.stringify(todo), { headers: headers })
-    //     .map(resp => resp.json())
-    //     .catch(res => {
-    //       console.error(res.toString());
-    //       return Observable.throw(res.message || 'Server error')
-    //     });
+    return this.http.post(TodoListService.baseUrl + '/todos', todo)
+        .map(resp => resp.json())
+        .catch(res => {
+          console.error(res.toString());
+          return Observable.throw(res.message || 'Server error')
+        });
   }
 
   getAll() {
-    // return this.http.get(TodoListService.baseUrl + '/todos')
-    //     .map(res => res.json())
-    //     .do(data => console.log(data)) // eyeball results in the console
-    //     .catch(res => {
-    //       console.error(res.toString());
-    //       return Observable.throw(res.message || 'Server error')
-    //     });
+    return this.http.get(TodoListService.baseUrl + '/todos')
+        .map(res => res.json())
+        .do(data => console.log(data)) // eyeball results in the console
+        .catch(res => {
+          console.error(res.toString());
+          return Observable.throw(res.message || 'Server error')
+        });
   }
 
   update(todo: Todo) {
     console.log('Update');
-    let headers = new Headers({ 'Content-Type': 'application/json' });
 
-    // return this.http.put(TodoListService.baseUrl + '/todos/' + todo.id, JSON.stringify(todo), { headers: headers })
-    //     .catch(res => {
-    //       console.error(res.toString());
-    //       return Observable.throw(res.message || 'Server error')
-    //     });
+    return this.http.put(TodoListService.baseUrl + '/todos/' + todo.id, todo)
+        .catch(res => {
+          console.error(res.toString());
+          return Observable.throw(res.message || 'Server error')
+        });
   }
 }

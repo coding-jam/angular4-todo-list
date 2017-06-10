@@ -9,14 +9,22 @@ import { TodoFormComponent } from './todo-form/todo-form.component';
 import { TodosComponent } from './todos/todos.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import {TodoListService} from "./services/todo-list.service";
-import { DoneComponent } from './done/done.component';
+import { DoneListComponent } from './done-list/done-list.component';
+
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
+import 'rxjs/add/operator/filter';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/catch';
+import 'rxjs/add/observable/from';
+import 'rxjs/add/observable/throw';
 
 const routes: Routes = [
   {
     path: 'todos', component: TodosComponent
   },
   {
-    path: 'done', component: DoneComponent
+    path: 'done', component: DoneListComponent
   },
   { path: '',
     redirectTo: '/todos',
@@ -30,7 +38,7 @@ const routes: Routes = [
     TodoFormComponent,
     TodosComponent,
     TodoListComponent,
-    DoneComponent
+    DoneListComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
