@@ -10,6 +10,7 @@ import { TodosComponent } from './todos/todos.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
 import {TodoListService} from "./services/todo-list.service";
 import { DoneListComponent } from './done-list/done-list.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
@@ -26,9 +27,11 @@ const routes: Routes = [
   {
     path: 'done', component: DoneListComponent
   },
-  { path: '',
-    redirectTo: '/todos',
-    pathMatch: 'full'
+  {
+    path: '', redirectTo: '/todos', pathMatch: 'full'
+  },
+  {
+    path: '**', component: NotFoundComponent
   }
 ];
 
@@ -38,7 +41,8 @@ const routes: Routes = [
     TodoFormComponent,
     TodosComponent,
     TodoListComponent,
-    DoneListComponent
+    DoneListComponent,
+    NotFoundComponent
   ],
   imports: [
     RouterModule.forRoot(routes),
