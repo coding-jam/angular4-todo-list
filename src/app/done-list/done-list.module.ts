@@ -6,7 +6,7 @@ import {DoneListComponent} from "./done-list.component";
 
 const doneRoutes:Routes = [
   {
-    path: 'done', component: DoneListComponent
+    path: '', component: DoneListComponent
   }
 ];
 
@@ -19,5 +19,4 @@ const doneRoutes:Routes = [
     DoneListComponent
   ]
 })
-export class DoneListModule {
-}
+export class DoneListModule { }

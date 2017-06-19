@@ -16,9 +16,11 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/catch';
 import 'rxjs/add/observable/from';
 import 'rxjs/add/observable/throw';
-import {DoneListModule} from "./done-list/done-list.module";
 
 const routes:Routes = [
+  {
+    path: 'done', loadChildren: 'app/done-list/done-list.module#DoneListModule'
+  },
   {
     path: '', redirectTo: '/todos', pathMatch: 'full'
   },
@@ -35,7 +37,6 @@ const routes:Routes = [
   imports: [
     RouterModule.forRoot(routes),
     TodosModule,
-    DoneListModule,
     BrowserModule,
     HttpModule
   ],
