@@ -4,6 +4,8 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {DoneListComponent} from "./done-list.component";
 
+import {CommonDirectivesModule} from "../common-directives/common-directives.module";
+
 const doneRoutes:Routes = [
   {
     path: '', component: DoneListComponent
@@ -14,6 +16,7 @@ const doneRoutes:Routes = [
   imports: [
     CommonModule,
     RouterModule.forChild(doneRoutes),
+    CommonDirectivesModule
   ],
   declarations: [
     DoneListComponent

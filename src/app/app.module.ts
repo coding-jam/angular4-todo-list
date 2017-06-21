@@ -8,6 +8,8 @@ import {TodoListService} from "./services/todo-list.service";
 import {NotFoundComponent} from './not-found/not-found.component';
 import {TodosModule} from "./todos/todos.module";
 
+import {CommonDirectivesModule} from "./common-directives/common-directives.module";
+
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/switchMap';
@@ -38,7 +40,8 @@ const routes:Routes = [
     RouterModule.forRoot(routes),
     TodosModule,
     BrowserModule,
-    HttpModule
+    HttpModule,
+    CommonDirectivesModule
   ],
   providers: [TodoListService],
   bootstrap: [AppComponent]
