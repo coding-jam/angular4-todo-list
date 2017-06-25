@@ -6,6 +6,7 @@ import {FormsModule} from '@angular/forms';
 import {TodosComponent} from "./todos.component";
 import {TodoFormComponent} from "../todo-form/todo-form.component";
 import {TodoListComponent} from "../todo-list/todo-list.component";
+import {CommonDirectivesModule} from "../common-directives/common-directives.module";
 
 const todosRoutes:Routes = [
   {
@@ -18,6 +19,7 @@ const todosRoutes:Routes = [
     CommonModule,
     FormsModule,
     RouterModule.forChild(todosRoutes),
+    CommonDirectivesModule
   ],
   declarations: [
     TodoFormComponent,
